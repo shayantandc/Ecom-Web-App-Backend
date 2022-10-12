@@ -1,3 +1,4 @@
+using Category.Logger;
 using Category.Models;
 using Category.Repository;
 using MediatR;
@@ -38,6 +39,7 @@ namespace Category
             services.AddSwaggerGen();
             services.AddMediatR(typeof(Startup).Assembly);
             services.AddTransient<ICategory, CategoryServices>();
+            services.AddSingleton<ILoggerService, LoggerService>();
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<EcomContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DefaultConnections")));
         }
