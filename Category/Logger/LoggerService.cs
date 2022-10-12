@@ -4,7 +4,7 @@
 
 namespace Category.Logger
 {
-    public class LoggerService : IloggerService
+    public class LoggerService : ILoggerService
     {
         private static ILogger logger = LogManager.GetCurrentClassLogger();
         public void LogDebug(string message)
@@ -41,3 +41,4 @@ namespace Category.Logger
         }
     }
 }
+

@@ -15,12 +15,12 @@ namespace Category.Controllers
     public class CategoryController : ControllerBase
     {
         private IMediator _mediator;
-        //private IloggerService _loggerService;
+        private ILoggerService _loggerService;
 
-        public CategoryController (IMediator mediator)
+        public CategoryController (IMediator mediator, ILoggerService loggerService)
         {
             _mediator = mediator;
-           // _loggerService= loggerService;
+           _loggerService= loggerService;
         }
         [HttpGet]
         //[Route("getUsers")]

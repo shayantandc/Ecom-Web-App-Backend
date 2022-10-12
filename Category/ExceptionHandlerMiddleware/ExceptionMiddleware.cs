@@ -12,8 +12,8 @@ namespace Category.ExceptionHandlerMiddleware
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IloggerService _logger;
-        public ExceptionMiddleware(RequestDelegate next, IloggerService logger)
+        private readonly ILoggerService _logger;
+        public ExceptionMiddleware(RequestDelegate next, ILoggerService logger)
         {
             _logger = logger;
             _next = next;
@@ -26,7 +26,7 @@ namespace Category.ExceptionHandlerMiddleware
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong: {ex}");
+                _logger.LogError($"Error: {ex}");
                 await HandleException(httpContext, ex);
             }
         }
